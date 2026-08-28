@@ -92,6 +92,7 @@ function extOf(file) {
 
 for (const file of files) {
   const rel = relative(root, file);
+  if (rel === "scripts/check-cox-restyle.mjs") continue;
   const ext = extOf(file);
   if (!textExt.has(ext) && ext !== "") continue;
   if (ext === "" && !file.endsWith(".env.example")) continue;

@@ -130,7 +130,7 @@ function GranolaScreen({ account }: { account: string }) {
     <div className="site site-granola">
       <header>
         <strong>Granola</strong>
-        <span>Live · still on</span>
+        <span>{account} · live call</span>
       </header>
       <p className="site-time">Still on the call · Granola in</p>
       <ul>
