@@ -1,7 +1,7 @@
 import type { Artifact, DemoMessage, SlideCard } from "@/data/types";
 import type { ComputerBeat } from "@/data/screens";
 import { CLIPS } from "@/data/clips";
-import { ACME_TAIL_SLIDES } from "@/data/jobs";
+import { COX_STORY_SLIDES } from "@/data/jobs";
 import { HeardSlide } from "./HeardSlide";
 
 function asSlides(artifact?: Artifact) {
@@ -130,31 +130,30 @@ function GranolaScreen({ account }: { account: string }) {
     <div className="site site-granola">
       <header>
         <strong>Granola</strong>
-        <span>Live · last 20 min</span>
+        <span>Live · still on</span>
       </header>
       <p className="site-time">Still on the call · Granola in</p>
       <ul>
         <li>
-          <span>14:12</span> Start with APM + Logs in one team. Not a product
-          tour.
+          <span>Now</span> Start with inventory and Autotrader listings. Not a
+          catalog tour.
         </li>
         <li>
-          <span>14:18</span> Security: SSO and an audit trail before any extra
+          <span>Then</span> Digital retail if the buy path is in the room.
+        </li>
+        <li>
+          <span>Then</span> Dealertrack if financing is named. Kelley Blue Book
+          if pricing data is.
+        </li>
+        <li>
+          <span>Hold</span> No price, date, or adoption claim in this story.
+        </li>
+        <li>
+          <span>Next</span> Dealer contact will take a follow-up on the named
           products.
         </li>
         <li>
-          <span>14:21</span> Soft yes on a Bits AI trial if those two are named.
-        </li>
-        <li>
-          <span>14:24</span> Cost mentioned once. RUM not in the room.
-        </li>
-        <li>
-          <span>14:28</span> Your contact will take a Tuesday with a security
-          co-owner.
-        </li>
-        <li>
-          <span>14:31</span> Use cases named live on the demo. Sev-2 story,
-          one team, SSO as the gate.
+          <span>Topic</span> How the lot and the listings stay in sync.
         </li>
       </ul>
     </div>
@@ -171,7 +170,7 @@ function FigmaScreen({
   const slides = asSlides(artifact);
   const packet = artifact?.kind === "packet" ? artifact : null;
   const pager = asOnePager(artifact);
-  const cards: SlideCard[] = slides?.cards ?? ACME_TAIL_SLIDES;
+  const cards: SlideCard[] = slides?.cards ?? COX_STORY_SLIDES;
 
   return (
     <div className="site site-figma">
@@ -184,7 +183,7 @@ function FigmaScreen({
               ? `${account} one-pager`
               : packet
                 ? `${account} inside note`
-                : `${account} North Star`}
+                : `${account} deck`}
         </strong>
         <em>Draft</em>
       </header>
@@ -221,16 +220,16 @@ function GongScreen({ account }: { account: string }) {
       <header>
         <strong>Gong</strong>
         <span>
-          {account} · first meeting · 32 min
+          {account} · first meeting
         </span>
       </header>
       <div className="gong-recap">
         <h4>Call recap</h4>
         <ul>
-          <li>They have APM + Logs</li>
-          <li>Security lead in the room</li>
-          <li>Cost mentioned once</li>
-          <li>No one who can sign was on the call</li>
+          <li>Inventory and listings named</li>
+          <li>Digital retail in the room</li>
+          <li>Financing mentioned once</li>
+          <li>No rollout date on the call</li>
         </ul>
       </div>
     </div>
@@ -251,24 +250,24 @@ function SfdcAccountScreen({ account }: { account: string }) {
       </div>
       <dl className="sfdc-fields">
         <div>
-          <dt>Has now</dt>
-          <dd>APM + Logs</dd>
+          <dt>Open with</dt>
+          <dd>Inventory + Autotrader</dd>
         </div>
         <div>
-          <dt>Security lead</dt>
+          <dt>Digital retail</dt>
           <dd>In first meeting</dd>
         </div>
         <div>
-          <dt>Cost</dt>
+          <dt>Financing</dt>
           <dd>Mentioned once</dd>
         </div>
         <div>
-          <dt>Who can sign</dt>
+          <dt>Next seat</dt>
           <dd>Not confirmed</dd>
         </div>
       </dl>
       <table className="sfdc-related">
-        <caption>Next 90 days</caption>
+        <caption>Named products</caption>
         <thead>
           <tr>
             <th>Product</th>
@@ -278,24 +277,24 @@ function SfdcAccountScreen({ account }: { account: string }) {
         </thead>
         <tbody>
           <tr>
-            <td>Bits AI</td>
-            <td>Platform eng manager</td>
-            <td>Day 15 to 45</td>
+            <td>Autotrader</td>
+            <td>Dealer contact</td>
+            <td>This room</td>
           </tr>
           <tr>
-            <td>Cloud SIEM</td>
-            <td>Security lead</td>
-            <td>Day 15 to 45</td>
+            <td>Inventory</td>
+            <td>Lot desk</td>
+            <td>This room</td>
           </tr>
           <tr>
-            <td>Cost</td>
-            <td>FinOps alias</td>
-            <td>Day 45 to 90</td>
+            <td>Dealertrack</td>
+            <td>Finance desk</td>
+            <td>If named</td>
           </tr>
           <tr>
-            <td>RUM</td>
-            <td>Frontend guild</td>
-            <td>Day 45 to 90</td>
+            <td>Kelley Blue Book</td>
+            <td>Pricing desk</td>
+            <td>If named</td>
           </tr>
         </tbody>
       </table>
@@ -320,7 +319,7 @@ function SfdcOppScreen({
       <div className="sfdc-title">
         <p>Opportunity</p>
         <h3>
-          {account} · $1.4M
+          {account} · product map
         </h3>
       </div>
       <dl className="sfdc-fields">
@@ -329,20 +328,20 @@ function SfdcOppScreen({
           <dd>4 · this quarter</dd>
         </div>
         <div className={highlight ? "gap" : undefined}>
-          <dt>Signer meeting</dt>
+          <dt>Follow-up</dt>
           <dd>None on calendar</dd>
         </div>
         <div className={highlight ? "gap" : undefined}>
-          <dt>Legal</dt>
-          <dd>Slow · no dated path</dd>
+          <dt>Product story</dt>
+          <dd>Draft · not sent</dd>
         </div>
         <div className={highlight ? "gap" : undefined}>
-          <dt>Inside contact</dt>
-          <dd>Likes us · weak map</dd>
+          <dt>Dealer contact</dt>
+          <dd>In the room · map open</dd>
         </div>
         <div className={highlight ? "gap" : undefined}>
-          <dt>Cloud SIEM</dt>
-          <dd>Not in the story</dd>
+          <dt>Dealertrack</dt>
+          <dd>Only if financing stays</dd>
         </div>
       </dl>
     </div>
@@ -360,22 +359,22 @@ function SheetsScreen({
   const rows = table
     ? table.rows
     : [
-        [account, "Inside contact", "Signer TBD", "APM + Logs", "Tue SIEM"],
-        ["Globex", "VP Eng", "CISO", "APM + Logs", "First meeting"],
-        ["Initech", "SRE lead", "CTO", "APM + Logs", "Bits AI"],
-        ["Umbrella", "Sec eng", "CISO", "APM + Logs", "Open source drill"],
-        ["Hooli", "Platform", "Signer TBD", "APM + Logs", "Cost later"],
+        [account, "Dealer contact", "Seat TBD", "Inventory + Autotrader", "Follow-up"],
+        ["OEM desk", "OEM contact", "Product desk", "Inventory", "First meeting"],
+        ["Marketplace account", "Ops lead", "Retail desk", "Autotrader", "Digital retail"],
+        ["Dealer group B", "Lot desk", "Finance desk", "Dealertrack", "If named"],
+        ["Dealer group C", "Retail lead", "Seat TBD", "Kelley Blue Book", "If named"],
       ];
   const cols = table
     ? table.columns
-    : ["Account", "Inside contact", "Who can sign", "Start with", "Next"];
+    : ["Account", "Dealer contact", "Next seat", "Start with", "Next"];
 
   return (
     <div className="site site-sheets">
       <header>
         <span className="sheets-mark">Sheets</span>
         <strong>
-          {table ? `${account} next 90 days` : "5 accounts x 5 prospects"}
+          {table ? `${account} product map` : "Open accounts"}
         </strong>
       </header>
       <table>
@@ -421,7 +420,7 @@ function GmailScreen({
       </p>
       <p>
         <span>Subject</span>
-        {artifact?.subject || `${account} / Datadog`}
+        {artifact?.subject || `${account} / Cox Automotive`}
       </p>
       <div>{artifact?.body || "Draft parked here until you tap Send?"}</div>
     </div>
@@ -472,7 +471,7 @@ function GdocScreen({
           {forecast
             ? `${account} forecast`
             : talks
-              ? "Bits AI talk tracks"
+              ? "Field talk tracks"
               : packet
                 ? packet.title
                 : onePager?.title || `${account} brief`}
@@ -515,25 +514,25 @@ function ResearchScreen({ account }: { account: string }) {
     <div className="site site-research">
       <header>
         <strong>{account}.com</strong>
-        <span>Public · last 30 days</span>
+        <span>Public pages</span>
       </header>
       <p className="site-time">Researching the account · not a sequence</p>
       <ul>
         <li>
-          <span>Status</span> Sev-2, 14 days ago. 47 minutes to name the failing
-          service. Postmortem still says they jumped three tools.
+          <span>Site</span> Public pages talk about digital retail and lot
+          inventory.
         </li>
         <li>
-          <span>Careers</span> Staff SRE JD: experience stitching APM and logs
-          across teams. Posted this month.
+          <span>Careers</span> Open roles sit in dealer software and marketplace
+          work.
         </li>
         <li>
-          <span>Blog</span> We outgrew homegrown dashboards. No named
-          replacement.
+          <span>Products</span> Autotrader, Kelley Blue Book, Dealertrack,
+          inventory, financing, data.
         </li>
         <li>
-          <span>Org</span> VP Eng owns time-to-fix. Platform director sits on
-          that stitch.
+          <span>Seats</span> Dealer principal owns the lot. Digital retail lead
+          lives in listings and the buy path.
         </li>
       </ul>
     </div>
@@ -557,7 +556,7 @@ function LinkedInScreen({
       </header>
       <p>
         <span>To</span>
-        {artifact?.to || `${account} VP Eng`}
+        {artifact?.to || `${account} dealer principal`}
         {artifact?.role ? ` · ${artifact.role}` : ""}
       </p>
       <div>{artifact?.body || "InMail parked here until you tap Send."}</div>

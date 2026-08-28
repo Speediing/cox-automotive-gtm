@@ -1,10 +1,12 @@
-# Grok Bot for Datadog GTM
+# Cox Automotive x SpaceXAI
 
-Passworded site. Grok Bot from SpaceXAI, for Datadog GTM.
+Passworded site. Grok Bot from SpaceXAI, for Cox Automotive GTM.
 
 ## What it is
 
-Three GTM jobs on one page. Each job has a short problem statement, an interactive Grok Bot demo, and the matching Krista Letz clips under that demo. Below that: a light index of the clips and the public Grok Bot quote wall.
+Three GTM jobs on one page. Each job has a short problem statement, an interactive Grok Bot demo, and the matching Krista Letz clips under that demo. Below that: a public Grok Bot quote wall and comparison.
+
+The Cox Automotive wordmark loads only from the official remote SVG. See `public/brand/wordmark.txt`. There is no local or generated fallback.
 
 ## Run locally
 
@@ -28,4 +30,4 @@ gh release download krista-gtm-clips-720p-2026-08-26 \
 
 ## Deploy
 
-Preview only under the `jasonwiker` Vercel team, project name `datadog-cro`. Set `SITE_PASSWORD=land2expand`. Do not promote to a public production domain until Jason says so.
+Preview only. Project name `cox-automotive-grokbot`. Set `SITE_PASSWORD=land2expand`.

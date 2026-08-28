@@ -1,0 +1,6 @@
+Official Cox Automotive wordmark
+
+https://www.coxautoinc.com/wp-content/uploads/2025/09/primary_117d9b.svg
+
+The site lockup loads this remote SVG only.
+There is no local copy and no generated-text fallback.

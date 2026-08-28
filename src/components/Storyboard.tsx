@@ -148,13 +148,13 @@ function LiveVisual({ visual }: { visual: StoryVisual }) {
       return (
         <div className="story-ui story-transcript-ui" aria-hidden>
           <header className="story-ui-bar">
-            <strong>Live transcript</strong>
-            <span>{visual.timestamp}</span>
+            <strong>Live notes</strong>
+            <span>{visual.phase}</span>
           </header>
-          <blockquote>
-            <strong>{visual.speaker}</strong>
-            “{visual.quote}”
-          </blockquote>
+          <p className="story-transcript-summary">
+            <strong>{visual.topic}</strong>
+            {visual.summary}
+          </p>
           <footer>
             {visual.signals.map((signal) => (
               <span key={signal}>{signal}</span>
@@ -182,18 +182,24 @@ function LiveVisual({ visual }: { visual: StoryVisual }) {
         <div className="story-ui story-email-ui" aria-hidden>
           <header className="story-ui-bar">
             <strong>Inbox</strong>
-            <span>5:27 AM</span>
+            <span>Overnight</span>
           </header>
           <div className="story-email-body">
-            <span className="story-avatar">JH</span>
+            <span className="story-avatar">
+              {visual.sender
+                .split(/[^A-Za-z]+/)
+                .filter(Boolean)
+                .slice(0, 2)
+                .map((part) => part[0]?.toUpperCase() || "")
+                .join("") || "DC"}
+            </span>
             <p>
               <strong>{visual.sender}</strong>
               <small>{visual.subject}</small>
             </p>
           </div>
           <footer>
-            <strong>{visual.questions}</strong>
-            questions need answers
+            <strong>{visual.label}</strong>
           </footer>
         </div>
       );

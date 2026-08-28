@@ -22,7 +22,13 @@ function Box({
   bot: FleetBot;
   chief?: boolean;
 }) {
-  const className = chief ? "org-box is-chief" : "org-box";
+  const className = [
+    "org-box",
+    chief ? "is-chief" : "",
+    bot.status ? "has-computer" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
   const body = (
     <>
       <span
@@ -37,6 +43,12 @@ function Box({
       </span>
       <span className="org-name">{bot.name}</span>
       <span className="org-blurb">{bot.blurb}</span>
+      {bot.status ? (
+        <span className="org-status">
+          <i aria-hidden />
+          {bot.status}
+        </span>
+      ) : null}
     </>
   );
 
@@ -59,11 +71,11 @@ export function RosterChart() {
 
   return (
     <section id="roster" className="roster">
-      <h2>A background team for every sales rep</h2>
+      <h2>A fleet of agents, each with a computer</h2>
       <p className="section-lede">
-        The work itself is the trigger. A call starts, an email lands, or an
-        account enters the list — and the right agent picks it up. They keep
-        working after the laptop closes. Drafts stay drafts until the rep sends.
+        A call, an inbox thread, or a new account starts the work. Room, Paper,
+        and Outbound keep their computers on. Drafts stay drafts until the Cox
+        seller sends.
       </p>
 
       <div className="org" role="tree">

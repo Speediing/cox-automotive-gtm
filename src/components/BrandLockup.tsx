@@ -1,3 +1,6 @@
+const COX_WORDMARK =
+  "https://www.coxautoinc.com/wp-content/uploads/2025/09/primary_117d9b.svg";
+
 export function BrandLockup({
   size = "md",
 }: {
@@ -8,9 +11,9 @@ export function BrandLockup({
     <div className={`brand-lockup brand-lockup-${size}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/brand/datadog-wordmark.svg"
-        alt="Datadog"
-        className="brand-dd"
+        src={COX_WORDMARK}
+        alt="Cox Automotive"
+        className="brand-customer"
       />
       <span className="brand-times" aria-hidden>
         ×
