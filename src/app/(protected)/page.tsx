@@ -1,4 +1,5 @@
 import { CompareTable } from "@/components/CompareTable";
+import { HeroDemo } from "@/components/HeroDemo";
 import { HeroTelemetry } from "@/components/HeroTelemetry";
 import { JobSection } from "@/components/JobSection";
 import { QuoteWall } from "@/components/QuoteWall";
@@ -22,17 +23,7 @@ export default function HomePage() {
       <div className="report is-pinned">
         <div className="report-hero">
           <HeroTelemetry />
-          <section className="hero">
-            <div>
-              <p className="eyebrow">Agents for every Cox seller</p>
-              <h1>The agents that work while your reps sell.</h1>
-              <p className="hero-intro">
-                Grok Bot listens to calls, watches the inbox, and researches
-                dealer, OEM, and marketplace accounts. Work starts it. Not
-                another prompt.
-              </p>
-            </div>
-          </section>
+          <HeroDemo />
 
           <section className="usecase-framing">
             <p className="eyebrow">Three sample use cases</p>

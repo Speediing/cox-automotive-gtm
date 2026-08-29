@@ -151,6 +151,85 @@ mustInclude(
   "Cox footer email",
 );
 mustInclude(
+  "src/app/(protected)/page.tsx",
+  "<HeroDemo",
+  "HeroDemo integration",
+);
+mustInclude(
+  "src/components/HeroDemo.tsx",
+  "Agents for every Cox seller",
+  "hero eyebrow",
+);
+mustInclude(
+  "src/components/HeroDemo.tsx",
+  "The agents that work while your reps sell.",
+  "hero headline",
+);
+mustInclude(
+  "src/components/HeroDemo.tsx",
+  "Work starts it. Not another prompt.",
+  "hero intro",
+);
+mustInclude("src/components/HeroDemo.tsx", "HERO_JOBS", "HeroDemo jobs table");
+mustInclude("src/data/hero-jobs.ts", "export const HERO_JOBS", "HERO_JOBS export");
+mustInclude("src/app/globals.css", ".hero-phone", "hero phone frame");
+mustInclude("src/app/globals.css", ".hero-bot-demo", "hero bot demo");
+mustInclude("src/app/globals.css", ".hero-phone-jobs", "hero job pills");
+
+const pageHero = readFileSync(join(root, "src/app/(protected)/page.tsx"), "utf8");
+if (/<section className="hero"/.test(pageHero)) {
+  fail("page.tsx still renders the hero section directly");
+}
+
+const heroDemo = existsSync(join(root, "src/components/HeroDemo.tsx"))
+  ? readFileSync(join(root, "src/components/HeroDemo.tsx"), "utf8")
+  : "";
+const heroSelectors = [
+  "hero-phone",
+  "hero-bot-demo",
+  "hero-phone-jobs",
+  "hero-phone-notch",
+  "hero-phone-header",
+  "hero-phone-back",
+  "hero-phone-agent",
+  "hero-phone-desktop",
+  "hero-phone-thread",
+  "hero-phone-work",
+  "hero-phone-work-label",
+  "hero-phone-work-meta",
+  "hero-phone-work-copy",
+  "hero-phone-message",
+  "hero-phone-composer",
+];
+for (const selector of heroSelectors) {
+  if (!heroDemo.includes(selector)) {
+    fail(`HeroDemo missing ${selector}`);
+  }
+}
+
+const heroJobs = existsSync(join(root, "src/data/hero-jobs.ts"))
+  ? readFileSync(join(root, "src/data/hero-jobs.ts"), "utf8")
+  : "";
+const heroLabels = [
+  "Sales Outbound",
+  "Account Research",
+  "Call Follow-up",
+  "Deal Desk",
+  "Pipeline Health",
+  "Renewal Risk",
+  "Competitive Intel",
+  "Sales Chief of Staff",
+];
+for (const label of heroLabels) {
+  if (!heroJobs.includes(label)) {
+    fail(`hero job ${label} missing from src/data/hero-jobs.ts`);
+  }
+}
+const heroIdCount = (heroJobs.match(/id: "[^"]+"/g) || []).length;
+if (heroIdCount !== 8) {
+  fail(`expected 8 hero jobs, found ${heroIdCount}`);
+}
+mustInclude(
   "src/components/BrandLockup.tsx",
   "https://www.coxautoinc.com/wp-content/uploads/2025/09/primary_117d9b.svg",
   "official Cox wordmark URL",

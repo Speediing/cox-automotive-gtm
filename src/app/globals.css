@@ -230,11 +230,19 @@ button:active:not(:focus-visible),
   .mobile-pc-toggle:hover {
     border-color: var(--ink);
   }
+
+  .hero-phone-jobs button:hover {
+    border-color: #b0bac3;
+    transform: translateY(-1px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .metric-card,
-  .job-more-body {
+  .job-more-body,
+  .hero-bot-demo,
+  .hero-phone-work,
+  .hero-phone-message {
     animation: none;
   }
 
@@ -268,7 +276,9 @@ button:active:not(:focus-visible),
   .pc-screen-bar button:active,
   .gb-composer button:active,
   .imessage-account button:active,
-  .gb-title-actions button:active {
+  .gb-title-actions button:active,
+  .hero-phone-jobs button:hover,
+  .hero-phone-jobs button:active {
     transform: none;
   }
 }
@@ -465,7 +475,9 @@ button:active:not(:focus-visible),
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 22rem);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 5rem);
   min-height: 450px;
   padding: 96px 0 64px;
   overflow: visible;
@@ -507,6 +519,336 @@ button:active:not(:focus-visible),
   color: var(--muted);
   font-size: 17px;
   line-height: 1.5;
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.hero-phone-jobs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+  margin-top: 1.15rem;
+}
+
+.hero-phone-jobs button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  min-height: 1.8rem;
+  padding: 0.34rem 0.62rem;
+  color: #5f6064;
+  font-size: 0.51rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  background: #ffffff85;
+  border: 1px solid #d6d7df;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.hero-phone-jobs button.is-active {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 7%, #fff);
+  border-color: color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.hero-phone-jobs button:active:not(:focus-visible) {
+  transform: none;
+}
+
+.hero-bot-demo {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 17rem;
+  justify-self: end;
+  animation: hero-demo-enter 0.9s var(--ease-out) 0.18s both;
+}
+
+.hero-phone {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 17rem;
+  max-width: 100%;
+  height: 34rem;
+  overflow: hidden;
+  color: #171719;
+  background: #fbfbfb;
+  border: 4px solid #333338;
+  border-radius: 3.2rem;
+  box-shadow:
+    0 2.5rem 5rem rgba(32, 35, 31, 0.2),
+    inset 0 0 1px rgba(17, 17, 17, 0.1);
+}
+
+.hero-phone-notch {
+  position: absolute;
+  z-index: 3;
+  top: 0.72rem;
+  left: 50%;
+  width: 92.8px;
+  height: 27.2px;
+  border-radius: 999px;
+  background: #000;
+  transform: translateX(-50%);
+}
+
+.hero-phone-header {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr) 1.5rem;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 36.8px 0.72rem 0.55rem;
+}
+
+.hero-phone-back {
+  display: grid;
+  place-items: center;
+  color: #8a8a90;
+  font-size: 1.45rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.hero-phone-agent {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.hero-phone-agent i {
+  display: grid;
+  flex: 0 0 auto;
+  width: 1.7rem;
+  height: 1.7rem;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--accent);
+}
+
+.hero-phone-agent span {
+  display: grid;
+  min-width: 0;
+  gap: 0.08rem;
+}
+
+.hero-phone-agent strong {
+  overflow: hidden;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hero-phone-agent small {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  overflow: hidden;
+  color: #8a8a90;
+  font-size: 0.55rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hero-phone-agent small::before {
+  width: 0.36rem;
+  height: 0.36rem;
+  border-radius: 50%;
+  background: #34c759;
+  box-shadow: 0 0 0 0.16rem rgba(52, 199, 89, 0.16);
+  content: "";
+}
+
+.hero-phone-desktop {
+  display: grid;
+  place-items: center;
+  color: #8a8a90;
+}
+
+.hero-phone-thread {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  gap: 0.62rem;
+  padding: 0.55rem 0.7rem 0.7rem;
+}
+
+.hero-phone-work {
+  margin: 0;
+  padding: 12.8px;
+  border: 1px solid #e5e5e7;
+  border-radius: 13.6px;
+  background: #f5f5f3;
+  box-shadow: 0 0.35rem 0.9rem rgba(32, 35, 31, 0.04);
+  animation: hero-phone-msg-enter 0.42s var(--ease-out) both;
+}
+
+.hero-phone-work-label {
+  margin: 0 0 0.45rem;
+  color: #2f9f6e;
+  font-size: 0.48rem;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.hero-phone-work-label::before {
+  content: "● ";
+}
+
+.hero-phone-work-meta {
+  display: grid;
+  grid-template-columns: 3.35rem minmax(0, 1fr);
+  gap: 0.35rem;
+  margin: 0 0 0.2rem;
+  color: #171719;
+  font-size: 0.62rem;
+  line-height: 1.35;
+}
+
+.hero-phone-work-meta span {
+  color: #8a8a90;
+}
+
+.hero-phone-work-copy {
+  margin: 0.48rem 0 0;
+  color: #5f6064;
+  font-size: 0.62rem;
+  line-height: 1.4;
+}
+
+.hero-phone-work-copy strong {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 0.55rem;
+  padding: 0.32rem 0.52rem;
+  border-radius: 999px;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, #fff);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.hero-phone-message {
+  position: relative;
+  max-width: 82%;
+  margin: 0;
+  padding: 0.55rem 0.68rem;
+  border-radius: 14.4px;
+  font-size: 0.68rem;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  animation: hero-phone-msg-enter 0.42s var(--ease-out) both;
+}
+
+.hero-phone-message.is-user {
+  align-self: flex-end;
+  color: #fff;
+  background: #171719;
+  border-bottom-right-radius: 0.18rem;
+  animation-delay: 0.12s;
+}
+
+.hero-phone-message.is-user::after {
+  position: absolute;
+  right: -0.16rem;
+  bottom: 0;
+  width: 0.42rem;
+  height: 0.5rem;
+  background: #171719;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  content: "";
+}
+
+.hero-phone-message.is-bot {
+  align-self: flex-start;
+  color: #171719;
+  background: #ececea;
+  border-bottom-left-radius: 0.18rem;
+  animation-delay: 0.34s;
+}
+
+.hero-phone-message.is-bot::after {
+  position: absolute;
+  left: -0.16rem;
+  bottom: 0;
+  width: 0.42rem;
+  height: 0.5rem;
+  background: #ececea;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  content: "";
+}
+
+.hero-phone-composer {
+  display: grid;
+  grid-template-columns: 1.7rem minmax(0, 1fr) 1.7rem;
+  align-items: center;
+  gap: 0.28rem;
+  min-height: 50px;
+  margin-top: auto;
+  padding: 0.22rem 0.24rem;
+  border: 1px solid #e5e5e7;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.hero-phone-composer > span:first-child {
+  display: grid;
+  place-items: center;
+  color: #7e7e85;
+  font-size: 1.15rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.hero-phone-composer p {
+  overflow: hidden;
+  margin: 0;
+  color: #9a9aa0;
+  font-size: 0.58rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hero-phone-composer > span:last-child {
+  display: grid;
+  place-items: center;
+  color: #b0b0b6;
+}
+
+@keyframes hero-demo-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1.15rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-phone-msg-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .usecase-framing {
@@ -5121,6 +5463,10 @@ button:active:not(:focus-visible),
     min-height: 0;
     padding: 96px 0 36px;
     gap: 28px;
+  }
+
+  .hero-bot-demo {
+    justify-self: center;
   }
 
   .hero h1,
